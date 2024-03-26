@@ -53,3 +53,13 @@ button:hover {
 h2 {
     text-align: center;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f0f0f0; /* optional: add background color */
+    padding: 10px 0; /* optional: add padding */
+}
