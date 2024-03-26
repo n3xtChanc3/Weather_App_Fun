@@ -4,16 +4,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* white background */
+    color: #000; /* black text */
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: #fff; /* white background */
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* black shadow */
 }
 
 h1 {
@@ -60,6 +61,17 @@ footer {
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: #f0f0f0; /* optional: add background color */
+    background-color: #f0f0f0; /* white background */
     padding: 10px 0; /* optional: add padding */
+}
+
+#dark-mode-toggle {
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Center the button horizontally */
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+.dark-mode {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
 }

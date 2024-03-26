@@ -18,8 +18,10 @@
             <h2>{{ weather }}</h2>
         {% endif %}
     </div>
-	<footer>
-        <p>&copy; 2024 <strong>$Master$Pro</strong>. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2024 <strong>$Master</strong>. All rights reserved.</p>
     </footer>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button> <!-- Add this button -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
