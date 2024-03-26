@@ -1,13 +1,27 @@
 from flask import Flask, render_template, request
 import requests
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-@app.route('/')
+# Load environment variables from .env file
+load_dotenv()
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-	return render_template('index.html')
+    if request.method == 'POST':
+        city = request.form['city']
+        api_key = os.getenv('API_KEY')  # Get API key from environment variable
+        url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
+        response = requests.get(url)
+        data = response.json()
+        if response.status_code == 200:
+            weather = f"Weather in {city}: {data['weather'][0]['description']}, Temperature: {data['main']['temp']}°C"
+            return render_template('index.html', weather=weather)
+        else:
+            return render_template('index.html', weather='City not found')
+    return render_template('index.html')
 
-
-if __name__ == "__main__":
-	app.run(debug=True)
-
+if __name__ == '__main__':
+    app.run(debug=True)
