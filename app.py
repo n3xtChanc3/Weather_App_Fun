@@ -17,7 +17,9 @@ def index():
         response = requests.get(url)
         data = response.json()
         if response.status_code == 200:
-            weather = f"Weather in {city}: {data['weather'][0]['description']}, Temperature: {data['main']['temp']}°C"
+            # Convert temperature from Kelvin to Celsius
+            temperature_celsius = data['main']['temp'] - 273.15
+            weather = f"Weather in {city}: {data['weather'][0]['description']}, Temperature: {temperature_celsius:.2f}°C"
             return render_template('index.html', weather=weather)
         else:
             return render_template('index.html', weather='City not found')
